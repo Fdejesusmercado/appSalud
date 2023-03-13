@@ -1,0 +1,32 @@
+
+<div class="cuerpo">
+  <div class="dashboard" #das >
+       <nav>
+           <ul>
+               <li class="logo">
+                   <img src="../../assets/seguro-de-salud.png" alt=""><h6>App salud</h6>
+               </li>
+               <li>
+                    <i class="fa-solid fa-house"></i> Inicio
+               </li>
+               <a routerLink="/perfil"><li>
+                   <i class="fa-solid fa-user"></i>Perfil
+               </li></a>
+               <a routerLink="/chats" ><li class="salir">
+                    <i class="fa-solid fa-comment"></i>Chats
+                </li></a>   
+               <li>
+                   <i class="fa-sharp fa-solid fa-clock-rotate-left"></i>Historial 
+               </li>
+               <a routerLink="/login" ><li class="salir">
+                   <i class="fa-solid fa-right-from-bracket"></i>Cerrar Sesion
+               </li></a>
+           </ul>  
+       </nav>
+  </div>
+  <div #pagina class="pagina">
+    
+    <router-outlet></router-outlet>
+
+  </div>
+</div>

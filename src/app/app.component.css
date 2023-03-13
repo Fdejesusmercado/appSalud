@@ -1,0 +1,113 @@
+
+/* Cuerpo se divide en 2 dasboard y contenido */
+.cuerpo {
+    display: grid;
+    grid-template-columns:5.9% 95.1%;
+    gap: 0;
+}
+
+
+/* estilo del menu */
+.dashboard{
+    background-color:var(--principal);
+    height: 100%;
+    width: 80px;
+    overflow: hidden;
+    transition: .2s;
+    
+}
+.dashboard:hover{
+   
+    transition: .3s;
+
+}
+.logo{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    
+}
+
+.logo img{
+    display: block;
+    margin: 0 1.2rem 0 -1rem;
+    width: 50px;
+    height: 50px;
+}
+.logo h6{
+    margin: 0 0 0 -5px;
+}
+
+.dashboard li{
+    width: 100vh;
+    padding: 1rem 3rem;
+    margin-left: -46px;
+    display: flex;
+    align-items: center;
+    color: white;
+
+}
+.dashboard li:hover{
+    cursor: pointer;
+}
+.dashboard li i{
+    display: block;
+    padding: 0 2rem 0 0;
+    
+}
+.dashboard li:hover{
+    background-color: var(--secundario);
+}
+
+.dashboard .logo:hover{
+    background-color: var(--principal);
+}
+
+/* Cuerpo */
+.pagina{
+   
+    transition: .2s;
+    width: 191.1vh;
+}
+@media (max-width:1000px) {
+    
+    .pagina h1{
+        font-size: 22px;
+        
+    }
+    
+}
+
+/*card*/
+
+.cardd{
+    width: 90%;
+    padding: 1rem;
+    margin-top: 2rem;
+    -webkit-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75)
+}
+@media (max-width:400px){
+    .cardd{
+        width: 100%;
+        padding: 1rem;
+    }
+}
+/* Globales*/
+.pading-izquierda{
+    margin: 0 0 0 7.5rem;
+    transition: .2s;
+}
+.width-full{
+    width: 40vh;
+    height: 100%;
+}
+.width-200{
+    width: 200px;
+    height: 100%;
+}
+.ocultar{
+    display: none;
+   
+}

@@ -1,0 +1,158 @@
+.contenedor-chat{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    margin: 0 0 0 1rem;
+   
+    
+}
+.chatss{
+    height: 86vh;
+    overflow-y:scroll ; 
+}
+.chat-menu{
+    padding: 1rem;
+    background-color: var(--secundario);
+    margin: 0 0 0 -0.5px;
+}
+.chats{
+    margin: .7rem auto;
+    display: flex;
+    gap: 1rem ;
+    border-radius: 1rem;
+    padding: .5rem ;
+    background-color:var(--secundario);
+    width: 90%;
+}
+.chat-img img {
+    display: block;
+    margin: auto 0;
+    width: 50px;
+    height: 50px;
+}
+.chat-name-informacion{
+    
+}
+.chat-name-informacion label{
+    display: block;   
+    font-weight: bold;
+}
+.chat-name-informacion span{
+    display: block;
+    margin: .3rem 0;
+    font-size: 13px;
+    
+}
+
+.chat-name-informacion .cargo-doctor{
+    display: inline-block;
+    margin:0 0 0 5rem ;
+    color: var(--principal);
+}
+
+
+.notificacion{
+    display: block;
+    margin-left: auto;
+    padding:0 1rem 0 0;
+    
+}
+.notificacion .cargo-doctor{
+    color: rgb(33, 129, 45);
+    font-weight: bold;
+}
+.notificacion .cargo-user{
+   
+    font-weight: 400;
+}
+.numero-notificacion{
+    display: block;
+    margin: 4px auto;
+    text-align: center;
+    border-radius: 50%;
+    width: 1.3rem;
+    font-size: 13px;
+    color: wheat;
+    font-weight: bold;
+    background-color: var(--principal);
+}
+/*Mensaje*/
+.mensaje-cabecera{
+    padding: 1rem;
+    background-color: var(--principal);
+    width: 100%;
+}
+.mensaje-cabecera label{
+    color: white;
+    font-weight: bold;
+}
+.cuerpo-mensaje{
+    width: 100%;
+}
+.mensajes-enviados{
+    padding: 1rem 6rem 0 6rem;
+    height: 69vh;
+    overflow-y:scroll;
+}
+.escribir input{
+   display: inline-block;
+
+   margin-left: 3rem;
+   margin-right: 1rem;
+   width: 85%;
+   padding:.4rem 1rem;
+   margin-right: 1rem;
+   border: 1px solid #aaaa;
+   border-radius: 1rem;
+}
+.escribir img{
+    width: 30px;
+    height: 30px;
+}
+.msg{
+    display: flex;
+    border-radius: .5rem;
+    padding: .5rem 4rem 1rem .5rem;
+    width: fit-content;
+    max-width: 50%;
+    position: relative;
+    word-wrap: break-word;
+   
+    margin-bottom: 2rem;
+    background-color: var(--secundario);
+}
+.msg img{
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 2px 1rem 2px 2px;
+}
+.msg .contenido-msg p{
+   
+    margin:7px 0;
+    max-width:100%;
+    max-width: 250px ;
+
+}
+
+.msg-you .contenido-msg p{
+    max-width: 250px ;
+   
+}
+
+.msg span{
+    position:absolute;
+    font-size: 11px;
+    bottom: .3rem;
+    right: 1rem;
+}
+.contenido-msg img{
+    padding: .5rem;
+    width: 260px;
+    height: 170px;
+    border-radius: 1remop;
+}
+/*msg-you*/
+.msg-you{
+    margin-left: auto;
+    
+}

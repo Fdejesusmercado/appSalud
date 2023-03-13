@@ -1,0 +1,66 @@
+<div class="chat-menu">
+    <h1>Chats</h1>
+</div>
+<div class="contenedor-chat" >
+    <div class="chatss">
+        <div *ngFor="let item of chats" class="kj">
+            <div onclick="clickChat" class="chats">
+                <div class="chat-img">
+                    <img src="../../assets/usuario.png" alt="">
+                </div>
+                <div class="chat-name-informacion">
+                    <label for="">{{item.nameUser}}</label>
+                    <span>{{item.ultimoMsg}}</span>
+                </div>
+                <div class="notificacion">
+                    <div *ngIf="item.cargo === 'doc'">
+                        <span class="cargo-doctor">Doctor</span>
+                    </div>
+                    <div *ngIf="item.cargo !== 'doc'">
+                        <span class="cargo-user">Usuario</span>
+                    </div>
+                   
+                    <div class="numero-notificacion">
+                        <span>{{item.Notification}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="mensajes">
+        <div class="mensaje-cabecera">
+            <label for=""  class="nombre-person">Fabio Mercado</label>
+        </div>
+        <div class="cuerpo-mensaje">
+            <div class="mensajes-enviados">
+               <div class="msg">
+                    <div class="img-persona">
+                        <img src="../../assets/usuario.png" alt="">
+                        
+                    </div>
+                    <div class="contenido-msg">
+                        <p>Holaaa</p>
+                    </div>
+                    <span>12:20 p.m</span>
+               </div>
+               <div class="msg msg-you">
+                <div class="img-persona">
+                    <img src="../../assets/usuario.png" alt="">
+                    
+                </div>
+                <div class="contenido-msg">
+                    <p>HolaaaSBFHBFJSDBFSDJBBDSFBDSFSDHFBDSFDSB Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt tempore earum ipsa inventore. Dolorem odit quisquam voluptatibus inventore neque? Neque in asperiores a sed sapiente officia similique, eum sunt quo.</p>
+                </div>
+                <span>12:20 p.m</span>
+               </div>
+            </div>
+            <div class="escribir">
+                <input placeholder="Mensaje.." type="text">
+                <img src="../../assets/send.png" alt="">
+            </div>
+        </div>
+        
+    </div>
+</div>

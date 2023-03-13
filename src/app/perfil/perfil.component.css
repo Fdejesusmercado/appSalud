@@ -1,0 +1,177 @@
+.principall{
+    
+    background-size: cover;
+}
+.miniatura{
+    
+    display: block;
+    background-image: url(../../assets/images.jpg);
+    background-position: bottom;
+    background-size: cover;
+    height: 200px;
+}
+@media(min-width: 720px) {
+    .miniatura{
+        height: 200px;
+    }
+}
+/* perfil */
+.perfil{
+    margin: 0;
+}
+
+
+/* img */
+.imgPerfil{
+    display: block;
+    width: 190px;
+    height: 190px;
+    margin:auto;
+    margin-top: -140px;
+    border: 3px solid var(--principal);
+    border-radius: 50%;
+}
+/* name */
+.name{
+   text-align: center;
+   margin-top: 2rem;
+   margin-bottom: 2rem;
+   font-weight: 700;
+    color: rgb(0, 0, 0);
+}
+/* descripcion */
+.descripcion{
+    position: relative;
+    padding: 1rem;
+    background-color:  var(--terciario);
+    -webkit-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    border-radius:.5rem;
+    color: black;
+    margin-bottom: 2rem;
+}
+.descripcion-icono{
+    position: absolute;
+    top: 20%;
+}
+.descripcion p{
+    font-weight: 500;
+    max-width: 300px;
+}
+.descripcion-icono img{
+    display: block;
+   
+}
+.descripcion-informacion{
+    display: block;
+    margin-left: 80px;
+    padding-top: 1rem;
+    padding-right: .5rem;
+    
+}
+.descripcion-btn{
+    display: flex;
+}
+.descripcion-btn button{
+    display: block;
+    width: 100%;
+    margin: 0 .5rem 0 .5rem;
+}
+
+
+/* documentos */
+.documentos{
+    background-color: var(--terciario);
+    -webkit-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+.documentos-carrucel{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.4rem;
+}
+.documentos h4{
+    margin: 0 0 1rem 1rem;
+}
+
+.bloque-documento{
+   
+}
+.bloque-documento label{
+    padding: 1rem 0  1rem 0;
+    font-size: 12px;
+    text-align: center;
+}
+.bloque-documento img{
+    display: block;
+    width: 70px;
+    height: 70px;
+    margin: auto;
+}
+@media(min-width: 1360px) {
+    .miniatura{
+        height: 190px;
+    }
+    .perfil{
+        display: grid;
+        grid-template-columns:50% 50%;
+        gap: .1rem;
+        padding: 3rem;
+        margin-top: -20px;
+        
+    }
+    .imgPerfil{
+        display: block;
+        margin-top: -120px;
+    }
+    
+    .descripcion{
+        width: 90%;
+        margin: auto;
+    }
+    .descripcion p{
+        font-weight: 500;
+        max-width: 100%;
+    }
+    .documentos{
+        border-radius: 10px;
+    }
+    
+}
+@media(min-width:1920px ) {
+    .miniatura{
+        height: 150px;
+    }
+    .perfil{
+        display: grid;
+        grid-template-columns:35% 65%;
+        gap: .1rem;
+        padding: 3rem;
+        
+    }
+    .imgPerfil{
+        display: block;
+        margin-top: -150px;
+    }
+    
+    .descripcion{
+        width: 70%;
+        margin: auto;
+    }
+    .descripcion p{
+        font-weight: 500;
+        max-width: 100%;
+    }
+    .documentos{
+        border-radius: 10px;
+    }
+}
+.map{
+    display: block;
+    width: 100%;
+    height: 20rem;
+}
