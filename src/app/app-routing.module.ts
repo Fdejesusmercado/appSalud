@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ChatsComponent } from './chats/chats.component';
+import { VigilanteGuard } from './vigilante.guard';
 const routes: Routes = [
   {path:'',redirectTo:'/login', pathMatch:'full'},
   {path:'login',component :LoginComponent },
-  {path:'perfil',component : PerfilComponent},
-  {path:'chats',component : ChatsComponent},
+  {path:'perfil',component : PerfilComponent,canActivate:[VigilanteGuard]},
+  {path:'chats',component : ChatsComponent,canActivate:[VigilanteGuard]},
   
 ];
 

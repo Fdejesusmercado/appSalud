@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ChatsComponent } from './chats/chats.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,9 +18,11 @@ import { ChatsComponent } from './chats/chats.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
