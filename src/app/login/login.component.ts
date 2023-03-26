@@ -11,27 +11,27 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent  implements OnInit{
   constructor(private msg:ToastrService,private servicio: LoginService,private cookieService: CookieService,private readonly  fb:FormBuilder,
-    private router: Router
-     
-    ) { }
+    private router: Router) { }
   
   loginForm !:FormGroup
   
-  @ViewChild('loginCabecera') LoginCabecera!: ElementRef;
 
   ngOnInit(): void {
-    this.cookieService.delete('loginToken');
-    this.loginForm = this.initForm();
-    throw new Error('Method not implemented.');
+    this.cookieService.delete('loginToken'); //Eliminar token al entrar al apartado de login
+    this.loginForm = this.initForm(); //Configuracion del formulario de login
+    throw new Error('Method not implemented.'); //En caso de error
   }
   
 
-  onSubmit():void{
-    this.login({username:this.loginForm.value.username, password:this.loginForm.value.password})
-    this.loginForm.reset();
+  onSubmit():void{ //Cuando se da click al btn login
+    const form_login_user = this.loginForm.value.username // usuario que la persona escribe en el login
+    const form_login_password = this.loginForm.value.password// Password que el usuario escribe en el login
+
+    this.login({username:form_login_user, password:form_login_password}) //Se pasa el objeto a la funcion login
+    this.loginForm.reset(); //Se recetea el formulario para que quede en blanco
   }
 
-  initForm(): FormGroup{
+  initForm(): FormGroup{//Configuracion del formulario de login
     return this.fb.group({
       username: ['', [Validators.required, Validators.minLength(8)]],
       password: ['', [Validators.required, Validators.minLength(8)]]
@@ -40,37 +40,22 @@ export class LoginComponent  implements OnInit{
   }
 
   
-  login(data:any){
-     this.servicio.login(data).subscribe(r=>
+  login(data:any){ //Funcion de login
+     this.servicio.login(data).subscribe(r=> //Se hace uso del servicio login de la API
       { 
         if (r) {
           console.log(r)
           if (r.acceso){
             console.log(r)
-            this.cookieService.set('loginToken', r.token,4,'/');
-            this.router.navigate(['/perfil'])
-            this.msg.success('Bienvenid@ al sistema', r.fullname);
+            this.cookieService.set('loginToken', r.token,4,'/'); //Se carga el token que rotarna la API en una Cookie
+            this.router.navigate(['/perfil'])//Se lleva al perfil
+            this.msg.success('Bienvenid@ al sistema', r.fullname);//Se muestra un msgAlerta
             
-          }else{
+          }else{//Contraseña incorrecta se manda un error y se muestra el msg que responde la API
             this.msg.error(`${r.description}`, 'Error', {
               timeOut: 3000,
-            });
-            // this.msg.show(`${r.description}`, 'Error!');
-            // console.log(this.LoginCabecera.nativeElement)
-            // const nuevoElemento = document.createElement('h5');
-            // nuevoElemento.textContent = r.description
-            // nuevoElemento.style.cssText = `
-            // padding: .2rem;
-            // border-radius: .3rem;
-            // margin-top: .6rem;
-            // font-weight: bold;
-            // background-color: rgba(128, 0, 128, 0.487);
-            // `
-            // this.LoginCabecera.nativeElement.appendChild(nuevoElemento)
-            // setTimeout(() => {
-            //   console.log(nuevoElemento)
-            //   nuevoElemento.remove()
-            // }, 3000);
+            }); 
+            
           }
           
         }
