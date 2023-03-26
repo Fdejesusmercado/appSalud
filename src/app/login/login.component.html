@@ -2,9 +2,9 @@
 <div class="centro">
     <div class="container login-principal">
         <form (ngSubmit)="onSubmit()" class="login-form" [formGroup]="loginForm" >
-            <div class="login-form__cabecera text-center">
-                <img src="../../assets/usuario.png" alt="Logo Usuario">
+            <div #loginCabecera class="login-form__cabecera text-center">
                 <h3>Iniciar sesión</h3>
+                
             </div>
             <div class="login-form__campos">
               <div class="campo ">

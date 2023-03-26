@@ -21,5 +21,10 @@ export class LoginService {
   CargarPerfil(data:any):Observable<any> {
     return this.http.post<any>(`${this.apiUrlCargarPerfil}`,data);
   }
+  
+
+
+
+  
 }
 
