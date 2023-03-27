@@ -9,6 +9,7 @@ import { ChatsComponent } from './chats/chats.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { MapsModule } from './maps/maps.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { CookieService } from 'ngx-cookie-service';
   ],
   imports: [
     BrowserModule,
+    MapsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule
