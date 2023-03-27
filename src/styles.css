@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+@import 'ngx-toastr/toastr';
 body{
     display: block;
     width: 100%;
@@ -19,5 +20,5 @@ li{
 }
 a{
     text-decoration: none;
-    color: white;
+    color: black;
 }

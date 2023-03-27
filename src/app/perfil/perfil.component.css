@@ -89,6 +89,28 @@
     padding: 2rem;
     margin-bottom: 1rem;
 }
+.documentos-header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    align-items: center;
+    
+}
+.documentos-header button{
+    background-color: rgba(218, 213, 213, 0.497);
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    
+}
+.documentos-header button i{
+    color: rgb(9, 194, 194);
+}
 .documentos-carrucel{
     display: flex;
     justify-content: space-evenly;
@@ -174,4 +196,12 @@
     display: block;
     width: 100%;
     height: 20rem;
+}
+.discapacidadEtiqueta{
+    background-color: var(--principal);
+    padding: .5rem;
+    margin: auto;
+    color: white;
+    margin-bottom: .2rem;
+    border-radius: .2rem;
 }

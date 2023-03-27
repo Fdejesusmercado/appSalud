@@ -6,7 +6,10 @@
     gap: 0;
 }
 
-
+.msgA{
+    color: blue;
+   
+}
 /* estilo del menu */
 .dashboard{
     background-color:var(--principal);

@@ -38,13 +38,23 @@
            </div>
    
            <div class="documentos ">
-               <h4>Documentos</h4>
+                <div class="documentos-header">
+                    <h4>Documentos</h4>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mdDocumentos">
+                        <i class="fa-solid fa-file-circle-plus"></i>
+                    </button>
+                </div>
+               
                <div class="documentos-carrucel">
-                   <div class="bloque-documento">
-                       <img src="../../assets/doc.png" alt="">
-                       <label >Historial medico</label>
+                    
+                   <div *ngFor="let i of documentosQllegan;"  class="bloque-documento">
+                       <a href="{{i.URL}}" target="_blank" download="{{i.nombreDoc}}.{{i.tipoDoc}}">
+                       <img *ngIf="(i.tipoDoc== 'DOCX')" src="../../assets/doc.png" alt="">
+                       <img *ngIf="(i.tipoDoc== 'PDF')" src="../../assets/pdf.png" alt="">
+                       <label >{{i.nombreDoc}}</label>
+                        </a>
                    </div>
-                   <div class="bloque-documento">
+                   <!-- <div class="bloque-documento">
                        <img src="../../assets/pdf.png" alt="">
                        <label >Sertificado medicos</label>
                    </div>
@@ -55,29 +65,24 @@
                    <div class="bloque-documento">
                        <img src="../../assets/xlsx.png" alt="">
                        <label >Operaciones realizadas</label>
-                   </div>
+                   </div> -->
                </div>
            </div>
            
             <div class="documentos ">
-               <h4>Discapacidades</h4>
+                <div class="documentos-header">
+                    <h4>Discapacidades</h4>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mdDiscapacidades">
+                        <i class="fa-solid fa-file-circle-plus"></i>
+                    </button>
+                </div>
                <div class="documentos-carrucel">
-                   <div class="bloque-documento">
-                       <img src="../../assets/amputacion.png" alt="">
-                       <label >Amputacion</label>
+                   <div *ngFor="let i of discapacidadesQllegan;"   class="bloque-documento">
+                       <img *ngIf="(i.idDiscapacidad == 1)" src="../../assets/sordera.png" alt="">
+                       <img *ngIf="(i.idDiscapacidad == 2)" src="../../assets/ciego.png" alt="">
+                       <label >{{i.nombreDis}}</label>
                    </div>
-                   <div class="bloque-documento">
-                       <img src="../../assets/ciego.png" alt="">
-                       <label >Cegera</label>
-                   </div>
-                   <div class="bloque-documento">
-                       <img src="../../assets/invalido.png" alt="">
-                       <label >Invalidos</label>
-                   </div>
-                   <div class="bloque-documento">
-                       <img src="../../assets/sordera.png" alt="">
-                       <label >Sordera</label>
-                   </div>
+                   
                </div>
             </div>
            
@@ -91,4 +96,61 @@
       
     </div>
    </div>
-   
+
+<!-- Modal add archivos -->
+<!-- Modal -->
+<div class="modal fade" id="mdDocumentos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar Documento </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Nombre del documento</label>
+                  <input type="text" class="form-control" id="nDocumento" aria-describedby="emailHelp">
+                
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Seleccione su archivo</label>
+                    <input type="file" class="form-control" id="doc" aria-describedby="emailHelp">
+                  </div>
+               
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Cargar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- modal add discapacidades -->
+<div class="modal fade" id="mdDiscapacidades" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar discapacidades</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h6>Tus discapacidades</h6>
+            <div *ngFor="let i of discapacidadesQllegan" >
+                <label class="discapacidadEtiqueta" id={{i.idDiscapacidad}}>{{i.nombreDis}} 
+                <span (click)="remover(i.idDiscapacidad)"><i class="fa-solid fa-xmark"></i> </span></label>
+                
+            </div>
+            <div class="addDiscapacidad">
+
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button"(click)="eliminarDiscapacidad()"class="btn btn-primary">Cargar</button>
+        </div>
+      </div>
+    </div>
+  </div>
