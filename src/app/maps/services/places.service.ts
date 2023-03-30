@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { DirectionsApliClient } from '../api/directionsApliClient';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,10 @@ export class PlacesService {
     return !!this.useLocation;
   }
 
-  constructor() { 
+  // constructor(private http: HttpClient) { 
+  //   this.getUserLocation(); 
+  // }
+  constructor(private directionsApi: DirectionsApliClient) { 
     this.getUserLocation(); 
   }
 
@@ -33,5 +38,9 @@ export class PlacesService {
         }
       );
     },);
+  }
+
+  getDirectionsByQuery(query: string = ''){
+    this.directionsApi.get<DirectionsApliClient>(`/${query}.json`);
   }
 }
