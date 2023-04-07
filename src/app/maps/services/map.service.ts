@@ -30,8 +30,9 @@ export class MapService {
 
   }
 
-  // getRouteBetweenPoints(start: [number, number], end: [number, number]){
+  getRouteBetweenPoints(start: [number, number], end: [number, number]){
 
-  //   this.directionsApi.get<DirectionsResponse>()
-  // }
+    this.directionsApi.get<DirectionsResponse>(`/${start.join(',')};${end.join(',')}`)
+    .subscribe(resp => console.log(resp));
+  }
 }

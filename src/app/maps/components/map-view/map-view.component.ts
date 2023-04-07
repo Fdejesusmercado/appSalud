@@ -2,12 +2,15 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import mapboxgl from 'mapbox-gl';
 import { Map, Popup, Marker } from 'mapbox-gl';
 import { PlacesService, MapService } from '../../services';
+import { CookieService } from 'ngx-cookie-service';
+import { MapsServiceService} from '../../../maps-service.service'
 
 @Component({
   selector: 'app-map-view',
   templateUrl: './map-view.component.html',
   styleUrls: ['./map-view.component.css']
 })
+
 export class MapViewComponent implements AfterViewInit {
 
   @ViewChild('mapDiv')
@@ -18,29 +21,38 @@ export class MapViewComponent implements AfterViewInit {
 
   constructor(
     private placesService:PlacesService,
-    private mapService: MapService
-    
+    private mapService: MapService,
+    private mapaServicee: MapsServiceService,
+    private cookieService : CookieService
     ){ }
 
 
     
 
   ngAfterViewInit(): void {
-
-      const geo = [
-        {
-          "nombre": "balance",
-          "longi": -74.775701,
-          "lati": 10.957039,
-          "img": "../../assets/usuario-pequeno.png"
-        },
-        {
-          "nombre": "balance",
-          "longi": -74.775780,
-          "lati": 10.957360,
-          "img": "../../assets/usuario-pequeno.png"
-        }
-      ]
+    const geo = [
+      {
+        "nombre": "balance",
+        "longi": -74.775701,
+        "lati": 10.957039,
+        "img": "../../assets/usuario-pequeno.png"
+      },
+      {
+        "nombre": "balance",
+        "longi": -74.775780,
+        "lati": 10.957360,
+        "img": "../../assets/usuario-pequeno.png"
+      }
+    ]
+    // const cookieToken = this.cookieService.get('loginToken')
+    // this.mapaServicee.CargarDoctoresEnMapa({'token':cookieToken}).subscribe(R=>{
+    //   if(R){
+    //     R.forEach(e => {
+    //       geo.push(e)
+    //     });
+    //   }
+    // })
+      
 
       if(!this.placesService.useLocation) throw Error('No hay localizacion');
 
