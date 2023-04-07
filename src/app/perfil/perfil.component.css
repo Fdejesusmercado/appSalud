@@ -134,7 +134,7 @@
     height: 70px;
     margin: auto;
 }
-@media(min-width: 1360px) {
+@media(min-width: 1000px) {
     .miniatura{
         height: 190px;
     }
@@ -164,7 +164,7 @@
     }
     
 }
-@media(min-width:1920px ) {
+@media(min-width:1000px ) {
     .miniatura{
         height: 150px;
     }
@@ -204,4 +204,29 @@
     color: white;
     margin-bottom: .2rem;
     border-radius: .2rem;
+}
+.form-select option{
+    padding: .3rem ;
+    border-radius: .3em;
+   
+    
+}
+.form-select option span{
+    
+   display: block;
+  
+}
+.informacion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto;
+    padding: .5rem;
+    width: 90%;
+    background-color: var(--secundario);
+    border-radius: .2rem;
+}
+.informacion p{
+    margin: auto;
+    font-size: 15px;
 }
