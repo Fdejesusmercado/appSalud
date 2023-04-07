@@ -59,11 +59,11 @@
 .campo svg{
     display: block;
     position: absolute;
-    top: 1.5rem;
-    right: .5;
+    top: 1.9rem;
+    left: .5rem;
     padding: 9px 8px ;
-    height: 4.27rem;
-    width: 4rem ;
+    height: 3.27rem;
+    width: 3rem ;
     color: var(--secundario );
     border-radius: 4px 0 0 4px;
 }

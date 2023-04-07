@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'login',component :LoginComponent },
   {path:'perfil',component : PerfilComponent,canActivate:[VigilanteGuard]},
   {path:'chats',component : ChatsComponent,canActivate:[VigilanteGuard]},
-  {path:'maps',component : MapScreenComponent},
+  {path:'maps',component : MapScreenComponent,canActivate:[VigilanteGuard]},
   
 ];
 

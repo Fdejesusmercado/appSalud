@@ -79,6 +79,7 @@
                <div class="documentos-carrucel">
                    <div *ngFor="let i of discapacidadesQllegan;"   class="bloque-documento">
                        <img *ngIf="(i.idDiscapacidad == 1)" src="../../assets/sordera.png" alt="">
+                       <img *ngIf="(i.idDiscapacidad == 3)" src="../../assets/mudo.png" alt="">
                        <img *ngIf="(i.idDiscapacidad == 2)" src="../../assets/ciego.png" alt="">
                        <label >{{i.nombreDis}}</label>
                    </div>
@@ -144,7 +145,7 @@
                 
             </div>
             <div class="addDiscapacidad">
-
+                
             </div>
         </div>
         <div class="modal-footer">

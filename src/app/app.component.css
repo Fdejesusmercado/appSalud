@@ -69,7 +69,7 @@
 
 /* Cuerpo */
 .pagina{
-   
+    margin: 0 0 0 5rem;
     transition: .2s;
     width: 191.1vh;
 }
@@ -100,7 +100,7 @@
 }
 /* Globales*/
 .pading-izquierda{
-    margin: 0 0 0 7.5rem;
+    margin: 0 0 0 12rem;
     transition: .2s;
 }
 .width-full{
