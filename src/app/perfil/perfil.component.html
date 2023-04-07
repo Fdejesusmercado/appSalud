@@ -81,6 +81,7 @@
                        <img *ngIf="(i.idDiscapacidad == 1)" src="../../assets/sordera.png" alt="">
                        <img *ngIf="(i.idDiscapacidad == 3)" src="../../assets/mudo.png" alt="">
                        <img *ngIf="(i.idDiscapacidad == 2)" src="../../assets/ciego.png" alt="">
+                       <img *ngIf="(i.idDiscapacidad == 4)" src="../../assets/noTacto.png" alt="">
                        <label >{{i.nombreDis}}</label>
                    </div>
                    
@@ -146,6 +147,19 @@
             </div>
             <div class="addDiscapacidad">
 
+            </div>
+            <div class="modal-body">
+                <h6>Agreagar discapacidades</h6>
+    
+                <select #selectDiscapacidad  class="form-select" size="6" aria-label="size 3 select example">
+                    <option *ngFor="let i of AllDiscapacidadesQueLLegan" 
+                    (click)="mostrarInfoDiscapacidad(i.idDiscapacidad)" 
+                    value="{{i.idDiscapacidad}}">{{i.nombreDis}}</option>
+                    
+                </select>
+                <div class="informacion" >
+                    <p [innerHTML]="mostrarInfoDiscapacidadd" ></p>
+                </div>
             </div>
         </div>
         <div class="modal-footer">

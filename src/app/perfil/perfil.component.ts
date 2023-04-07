@@ -4,6 +4,7 @@ import {LoginService} from '../../app/login.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { vec3 } from 'mapbox-gl';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -12,12 +13,16 @@ import { ToastrService } from 'ngx-toastr';
 export class PerfilComponent implements OnInit {
 
   nombrePerfil = ''
+  mostrarInfoDiscapacidadd ='Seleccione una discapacidad para ver su informacion'
   documentosQllegan :any 
   discapacidadesQllegan:any
   DiscapacidadesAeliminar:any = []
+  AllDiscapacidadesQueLLegan :any = []
+  @ViewChild('selectDiscapacidad ', { static: true }) selectDiscapacidad!: ElementRef;
+
   ngOnInit(): void {
     this.cargarPerfil()
-    
+    this.cargarAllDiscapacidades()
     throw new Error('Method not implemented.');
   }
   
@@ -56,6 +61,7 @@ export class PerfilComponent implements OnInit {
     this.servicio.eliminarDiscapacidad({'token':this.cookieService.get('loginToken'),'dis_eliminar':this.DiscapacidadesAeliminar}).subscribe(R=>{
       if (R){
         console.log(R)
+        this.addDiscapacidad()
         this.msg.error(`Aplicando los cambios`, 'Alerta', {
           timeOut: 2000,
           progressBar:true,
@@ -63,8 +69,35 @@ export class PerfilComponent implements OnInit {
         setTimeout(()=>{
           window.location.reload();
         },2000)
-       
       }
     })
+  }
+
+  cargarAllDiscapacidades(){
+    this.servicio.allDiscapacidades().subscribe(R=>{
+      if (R){
+        
+        this.AllDiscapacidadesQueLLegan = R.allDiscapacidades
+        console.log(this.AllDiscapacidadesQueLLegan)
+      }
+    })
+  }
+  mostrarInfoDiscapacidad(id:any){
+    if (this.AllDiscapacidadesQueLLegan != null){
+        for (const i of this.AllDiscapacidadesQueLLegan) {
+          if(i.idDiscapacidad == id){
+            this.mostrarInfoDiscapacidadd = i.descripcionDis
+          }
+        }
+    }
+  }
+
+  addDiscapacidad(){
+    this.servicio.addDiscapacidad({'token':this.cookieService.get('loginToken'),'dis_add':this.selectDiscapacidad.nativeElement.value}).subscribe(R=>{
+      if (R){
+        console.log(R)
+      }
+    })
+    console.log(this.selectDiscapacidad.nativeElement.value)
   }
 }
