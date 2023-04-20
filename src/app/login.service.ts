@@ -12,6 +12,7 @@ export class LoginService {
   private apiEliminarDiscapacidad = 'http://127.0.0.1:3000/eliminarDiscapacidad'
   private apiAllDiscapacidades = 'http://127.0.0.1:3000/allDiscapacidades'
   private apiAddlDiscapacidades = 'http://127.0.0.1:3000/addDiscapacidad'
+  private apiCargarPerfilPorId = 'http://127.0.0.1:3000/cargarPerfilPorId'
   constructor(private http: HttpClient) { }
 
 
@@ -24,6 +25,9 @@ export class LoginService {
     return this.http.post<any>(`${this.apiUrlCargarPerfil}`,data);
   }
   
+  CargarPerfilPorId(data:any):Observable<any> {
+    return this.http.post<any>(`${this.apiCargarPerfilPorId}`,data);
+  }
   eliminarDiscapacidad(data:any):Observable<any>{
     return this.http.put<any>(`${this.apiEliminarDiscapacidad}`,data);
   }
