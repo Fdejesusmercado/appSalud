@@ -12,12 +12,14 @@ import { CookieService } from 'ngx-cookie-service';
 import { MapsModule } from './maps/maps.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegistroComponent } from './registro/registro.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PerfilComponent,
-    ChatsComponent
+    ChatsComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
