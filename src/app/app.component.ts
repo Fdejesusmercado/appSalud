@@ -1,4 +1,6 @@
+import { Socket } from 'ngx-socket-io';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -6,15 +8,27 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  
+  constructor(
+    private socket:Socket,
+    private msg :ToastrService,
+  ){
+
+  }
   title = 'AppSalud';
   @ViewChild('das', { static: true })das!: ElementRef;
   @ViewChild('pagina', { static: true })pagina!: ElementRef;
   ngOnInit(): void {
-  
+    this.socket.on('AlguienEstaEnTuSala', (data:any) => {
+      console.log('se unieron')
+      this.msg.success(data.data,'Serivicio solicitado por:' , {
+        timeOut: 3000,
+        progressBar:true,
+        });
+     });
     this.change()
     throw new Error('Method not implemented.');
   }
+  
   
   change(){
     const das =  this.das.nativeElement;

@@ -170,7 +170,7 @@
     }
     .perfil{
         display: grid;
-        grid-template-columns:35% 65%;
+        grid-template-columns:45% 55%;
         gap: .1rem;
         padding: 3rem;
         

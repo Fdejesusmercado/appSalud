@@ -1,0 +1,84 @@
+.center{
+    margin: 2rem 10rem 0rem 5rem;
+}
+.principal{
+    display: grid;
+    grid-template-columns: 33.3333% 33.3333% 33.3333%;
+    gap: 2rem;
+}
+.item-historial{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background-color: var(--terciario);
+    -webkit-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    position: relative;
+    margin: 2rem 0 0 0;
+}
+.fecha{
+    position: absolute;
+    top: .7rem;
+    right: .7rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.email{
+    position: absolute;
+    top: 3.5rem;
+    right: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.padreBtn{
+    display: flex;
+    
+}
+.btnTuhistorial{
+    width: 100%;
+    margin: 3px;
+}
+.rolPaciente{
+    
+    font-weight: 500;
+    color: var(--principal);
+}
+.rolMedico{
+    
+    font-weight: 600;
+    color: #6610f2;
+}
+.estado-pendiente{
+    font-weight: bold;
+    color: rgba(49, 49, 223, 0.667);
+}
+.estado-proceso{
+    font-weight: bold;
+    color: rgba(88, 211, 90, 0.667);
+}
+
+.estado-cancelada{
+    font-weight: bold;
+    color: rgba(221, 77, 77, 0.793);
+}
+
+
+.estado-terminada{
+    color: rgb(231, 188, 113);
+    font-weight: 700;
+    font-size: 25px;
+}
+
+
+  
+  
+  
+  
+  
+  
+  
+  

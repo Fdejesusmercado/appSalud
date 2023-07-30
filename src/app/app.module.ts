@@ -14,13 +14,17 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SocketIoModule } from 'ngx-socket-io';
 import { PerfilDocComponent } from './perfil-doc/perfil-doc.component';
+import { HistorialComponent } from './historial/historial.component';
+import { RegistroComponent } from './registro/registro.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PerfilComponent,
     ChatsComponent,
-    PerfilDocComponent
+    PerfilDocComponent,
+    HistorialComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

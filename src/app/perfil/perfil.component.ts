@@ -38,13 +38,13 @@ export class PerfilComponent implements OnInit {
     this.socket.on('connectTRUE', (data:any) => {
       console.log('Server response:', data);
      });
-     this.socket.on('AlguienEstaEnTuSala', (data:any) => {
-      console.log('se unieron')
-      this.msg.success(data.data,'Serivicio solicitado por:' , {
-        timeOut: 3000,
-        progressBar:true,
-        });
-     });
+    //  this.socket.on('AlguienEstaEnTuSala', (data:any) => {
+    //   console.log('se unieron')
+    //   this.msg.success(data.data,'Serivicio solicitado por:' , {
+    //     timeOut: 3000,
+    //     progressBar:true,
+    //     });
+    //  });
   }
   cargarPerfil(){
     this.servicio.CargarPerfil({'token':this.cookieService.get('loginToken')}).subscribe(R=>{

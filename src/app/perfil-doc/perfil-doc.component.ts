@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';  
 import {LoginService} from '../../app/login.service';
 import { ActivatedRoute } from '@angular/router';
 import { Socket } from 'ngx-socket-io';
 import { CookieService } from 'ngx-cookie-service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-perfil-doc',
   templateUrl: './perfil-doc.component.html',
@@ -12,8 +13,17 @@ import { CookieService } from 'ngx-cookie-service';
 export class PerfilDocComponent implements OnInit{
   id: any;
   nombrePerfil = ''
+  cargo = ''
+  dir = ""
   documentosQllegan :any 
+  discapacidadesQllegan:any
+  
+  @ViewChild('btnSolicitarSV')
+  btnSolicitarSV!: ElementRef
+
   constructor(
+    private msg: ToastrService ,
+    private routerNavigate : Router,
     private route: ActivatedRoute,
     private servicio: LoginService,
     private socket:Socket,
@@ -34,8 +44,14 @@ export class PerfilDocComponent implements OnInit{
         this.nombrePerfil = R.fullname
         
         console.log(R) 
-        
+        if(R.cargo == '2'){
+          this.cargo = 'Doctor'
+        }else{
+          this.cargo = 'Paciente'
+        }
+        this.dir = R.direccion
         this.documentosQllegan = R.documentos
+        this.discapacidadesQllegan = R.discapacidades
         console.log(this.documentosQllegan)
       }
     })
@@ -43,6 +59,13 @@ export class PerfilDocComponent implements OnInit{
   }
 
   solicitarServicio(){
+    this.btnSolicitarSV.nativeElement.remove()
+    this.routerNavigate.navigate(['/historial'])
+    this.msg.info(this.nombrePerfil,'Solicitando servicio al doctor:', {
+      timeOut: 3000,
+      progressBar:true,
+      });
+   
     this.socket.emit('SolicitarServicio',{'id':this.id,'token':this.cookieService.get('loginToken')})
   }
 }
