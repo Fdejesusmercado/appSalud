@@ -4,22 +4,42 @@ import { CookieService } from 'ngx-cookie-service';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Socket } from 'ngx-socket-io';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent  implements OnInit{
-  constructor(private msg:ToastrService,private servicio: LoginService,private cookieService: CookieService,private readonly  fb:FormBuilder,
+  
+  constructor(private socket:Socket, private msg:ToastrService,private servicio: LoginService,private cookieService: CookieService,private readonly  fb:FormBuilder,
     private router: Router) { }
   
   loginForm !:FormGroup
-  
+  response!: string;
 
   ngOnInit(): void {
+    
     this.cookieService.delete('loginToken'); //Eliminar token al entrar al apartado de login
+    // this.socket.emit('addSala',{'id':'1'})
+
+    // this.socket.on('response', (data:any) => {
+    //   console.log('Server response:', data);
+    //   this.response = data.data;
+    // });
+
+    // this.socket.on('connectTRUE', (data:any) => {
+    //   console.log('Server response:', data);
+      
+    // });
+
     this.loginForm = this.initForm(); //Configuracion del formulario de login
+
+
+    
     throw new Error('Method not implemented.'); //En caso de error
+
+    
   }
   
 
@@ -63,4 +83,7 @@ export class LoginComponent  implements OnInit{
       })
 
   }
+  // sendMessage(){
+    // this.socket.emit('message', 'Hello, Server!');
+  // }
 }

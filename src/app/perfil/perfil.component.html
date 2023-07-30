@@ -151,7 +151,7 @@
             <div class="modal-body">
                 <h6>Agreagar discapacidades</h6>
     
-                <select #selectDiscapacidad  class="form-select" size="6" aria-label="size 3 select example">
+                <select #selectDiscapacidad  class="form-select" size="4" aria-label="size 3 select example">
                     <option *ngFor="let i of AllDiscapacidadesQueLLegan" 
                     (click)="mostrarInfoDiscapacidad(i.idDiscapacidad)" 
                     value="{{i.idDiscapacidad}}">{{i.nombreDis}}</option>

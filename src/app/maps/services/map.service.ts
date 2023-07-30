@@ -24,7 +24,7 @@ export class MapService {
     if(!this.isMapReady) throw Error("el mapa no esta inicializado");
 
     this.map?.flyTo({
-      zoom: 14,
+      zoom: 17,
       center: coords
     })
 

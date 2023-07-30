@@ -12,14 +12,15 @@ import { CookieService } from 'ngx-cookie-service';
 import { MapsModule } from './maps/maps.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SocketIoModule } from 'ngx-socket-io';
+import { PerfilDocComponent } from './perfil-doc/perfil-doc.component';
 import { RegistroComponent } from './registro/registro.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PerfilComponent,
-    ChatsComponent,
-    RegistroComponent
+    ChatsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +29,8 @@ import { RegistroComponent } from './registro/registro.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    SocketIoModule.forRoot({ url: 'http://localhost:3000' })
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

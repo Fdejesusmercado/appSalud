@@ -10,8 +10,8 @@ export class MapsServiceService {
   private apiUrlCargarDoctoresEnMapa = 'http://127.0.0.1:3000/cargarDoctoresEnMapa'; ///
   constructor(private http: HttpClient) { }
 
-  CargarDoctoresEnMapa(data: any): Observable<any>{
-    return this.http.post<any>(`${this.apiUrlCargarDoctoresEnMapa}`,data);
+   CargarDoctoresEnMapa(): Observable<any>{
+    return this.http.get<any>(`${this.apiUrlCargarDoctoresEnMapa}`);
    
   }
 }

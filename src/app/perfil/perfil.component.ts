@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { vec3 } from 'mapbox-gl';
+import { Socket } from 'ngx-socket-io';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -19,18 +20,32 @@ export class PerfilComponent implements OnInit {
   DiscapacidadesAeliminar:any = []
   AllDiscapacidadesQueLLegan :any = []
   @ViewChild('selectDiscapacidad ', { static: true }) selectDiscapacidad!: ElementRef;
+  
+    constructor(private socket:Socket ,private msg:ToastrService,router : Router,private loca:Location,private servicio: LoginService,private cookieService: CookieService){
+  
+    }
 
   ngOnInit(): void {
-    this.cargarPerfil()
-    this.cargarAllDiscapacidades()
+    
+    
     throw new Error('Method not implemented.');
   }
   
-
-  constructor(private msg:ToastrService,router : Router,private loca:Location,private servicio: LoginService,private cookieService: CookieService){
-
+  ngAfterViewInit():void{
+    this.cargarPerfil()
+    this.cargarAllDiscapacidades()
+    this.socket.emit('addSala',{'id':this.cookieService.get('loginToken')})
+    this.socket.on('connectTRUE', (data:any) => {
+      console.log('Server response:', data);
+     });
+     this.socket.on('AlguienEstaEnTuSala', (data:any) => {
+      console.log('se unieron')
+      this.msg.success(data.data,'Serivicio solicitado por:' , {
+        timeOut: 3000,
+        progressBar:true,
+        });
+     });
   }
-
   cargarPerfil(){
     this.servicio.CargarPerfil({'token':this.cookieService.get('loginToken')}).subscribe(R=>{
       if (R){
@@ -62,7 +77,7 @@ export class PerfilComponent implements OnInit {
       if (R){
         console.log(R)
         this.addDiscapacidad()
-        this.msg.error(`Aplicando los cambios`, 'Alerta', {
+        this.msg.success(`Aplicando los cambios`, 'Alerta', {
           timeOut: 2000,
           progressBar:true,
           });

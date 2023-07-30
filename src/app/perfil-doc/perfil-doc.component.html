@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="cuerpo-prtfilDoc">
+        <div class="datos-perfilDoc">
+            <img class="imgPerfil" src="../../assets/doc1.png" alt="">
+            <div class="calificacion">
+                <div class = "POPcalificaciones">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+            </div>
+        <h5 [innerHTML]="nombrePerfil" >Anderson Babilonia</h5>
+        </div>
+        <div class="informacion-perfilDoc">
+            <div class="documentos ">
+
+               <div class="documentos-carrucel">
+                <div *ngFor="let i of documentosQllegan;"  class="bloque-documento">
+                    <a href="{{i.URL}}" target="_blank" download="{{i.nombreDoc}}.{{i.tipoDoc}}">
+                    <img *ngIf="(i.tipoDoc== 'DOCX')" src="../../assets/doc.png" alt="">
+                    <img *ngIf="(i.tipoDoc== 'PDF')" src="../../assets/pdf.png" alt="">
+                    <label >{{i.nombreDoc}}</label>
+                     </a>
+                </div>
+               </div>
+           </div>
+            <button (click)="solicitarServicio()" class="btn btn-primary">Solicitar servicio</button>
+        </div>
+    </div>
+    
+</div>
