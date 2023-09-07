@@ -1,6 +1,6 @@
 .cuerpo-prtfilDoc{
     
-    padding: 1rem 0;
+    padding: 2rem;
     background-color:  var(--terciario);
     -webkit-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
@@ -9,6 +9,8 @@
     display: grid;
     grid-template-columns:25% 75%;
     margin: 2rem auto;
+    width: max-content ;
+    min-width: 60%;
 }
 .cuerpo-prtfilDoc img{
    
@@ -64,4 +66,30 @@
     width: 70px;
     height: 70px;
     margin: auto;
+}
+.discapacidadesPersona{
+    width: max-content ;
+    min-width: 30%;
+    padding: 2rem 0;
+    background-color:  var(--terciario);
+    -webkit-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    border-radius:.5rem;
+   
+}
+.containerDis{
+    display: flex;
+    justify-content: space-evenly;
+}
+.containerMapa{
+    margin: 1rem auto;
+    padding: 1rem;
+    background-color:  var(--terciario);
+    -webkit-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 6px 14px -6px rgba(0,0,0,0.75);
+    border-radius:.5rem;
+    width: max-content;
+    height: max-content;
 }

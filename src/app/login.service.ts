@@ -13,6 +13,9 @@ export class LoginService {
   private apiAllDiscapacidades = 'http://127.0.0.1:3000/allDiscapacidades'
   private apiAddlDiscapacidades = 'http://127.0.0.1:3000/addDiscapacidad'
   private apiCargarPerfilPorId = 'http://127.0.0.1:3000/cargarPerfilPorId'
+  private apiCargarHistorial = 'http://127.0.0.1:3000/cargarHistorial'
+  private apiUpdateServicio = 'http://127.0.0.1:3000/updateEstado'
+  private apiRegistrarUser = 'http://127.0.0.1:3000/registrarUser'
   constructor(private http: HttpClient) { }
 
 
@@ -37,6 +40,17 @@ export class LoginService {
   }
   addDiscapacidad(date:any):Observable<any>{
     return this.http.post<any>(`${this.apiAddlDiscapacidades}`,date)
+  }
+  
+  cargarHistorial(date:any):Observable<any>{
+    return this.http.post<any>(`${this.apiCargarHistorial}`,date)
+  }
+
+  updateServicio(date:any):Observable<any>{
+    return this.http.put<any>(`${this.apiUpdateServicio}`,date)
+  }
+  RegistrarUser(date:any):Observable<any>{
+    return this.http.post<any>(`${this.apiRegistrarUser}`,date)
   }
 }
 

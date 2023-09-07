@@ -1,0 +1,46 @@
+
+<div class="center">
+    <h1>Tu historial</h1>
+</div>
+<div class="center principal">
+    <div *ngFor="let i of tuHistorial;" class="item-historial">
+        <h6>{{i.NombrePersona}}</h6>
+        <span class="email">{{i.Email}}</span>
+        <span class="fecha">{{i.fecha}}</span>
+        <div *ngIf="(i.rolPersona== 2)" class="">
+            <span class="rol rolMedico">Doctor</span>
+        </div>
+        <div *ngIf="(i.rolPersona== 1)" class="">
+            <span class="rol rolPaciente">Paciente</span>
+        </div>
+        
+        <div *ngIf="(i.estado== 1)" class="">
+            <span class="estado-pendiente">Pendiente</span>
+        </div>
+
+        <div *ngIf="(i.estado== 2)" class="">
+            <span class="estado-proceso">Proceso</span>
+        </div>
+        <div *ngIf="(i.estado== 3)" class="">
+            <span class="estado-cancelada">Cancelada</span>
+        </div>
+        <div *ngIf="(i.estado== 4)" class="">
+            <span class="estado-terminada">Finalizada</span>
+        </div>
+        
+        
+        
+        <div  class="padreBtn">
+            <button (click)="verPerfil(i.idusuarios)" class="btnTuhistorial btn btn-primary">Ver Perfil</button>
+            
+            <button (click)="UpdateEstado(i.idservicio, 2)" *ngIf="(i.rolPersona== 1 && i.estado !=3 && i.estado !=4 && i.estado != 2)"class="btnTuhistorial btn btn-primary">Aceptar</button>
+
+            <button  (click)="UpdateEstado(i.idservicio, 4)" *ngIf="(i.estado == 2 )" class="btnTuhistorial btn btn-danger">Finalizar</button>
+            
+            <button  (click)="UpdateEstado(i.idservicio, 3)"*ngIf="(i.estado !=3 && i.estado !=4 && i.estado !=2 )" class="btnTuhistorial btn btn-danger">Cancelar</button>
+        </div>
+
+    </div>
+</div>
+
+
